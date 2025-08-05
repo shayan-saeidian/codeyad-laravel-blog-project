@@ -12,6 +12,9 @@
     <link rel="stylesheet" href="{{url('panel/vendors/slick/slick-theme.css')}}">
     <link rel="stylesheet" href="{{url('panel/vendors/vmap/jqvmap.min.css')}}">
     <link rel="stylesheet" href="{{url('panel/assets/css/app.css')}}" type="text/css">
+    <link rel="stylesheet" href="{{url('panel/vendors/select2/css/select2.min.css')}}">
+
+
 </head>
 <body class="small-navigation">
 @include('admin.layouts.partials.navigation')
@@ -22,5 +25,8 @@
 <script src="{{url('panel/vendors/slick/slick.min.js')}}"></script>
 <script src="{{url('panel/vendors/vmap/jquery.vmap.min.js')}}"></script>
 <script src="{{url('panel/assets/js/app.js')}}"></script>
+<script src="{{url('panel/vendors/select2/js/select2.min.js')}}"></script>
+
+@stack('scripts')
 </body>
 </html>

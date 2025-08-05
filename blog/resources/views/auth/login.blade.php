@@ -14,7 +14,7 @@
 	<meta name="theme-color" content="#5867dd">
 
 	<!-- Plugin styles -->
-	<link rel="stylesheet" href="{{url('panel/vendors/bundle.css" type="text/css')}}">
+	<link rel="stylesheet" href="{{url('panel/vendors/bundle.css')}}" type="text/css">
 
 	<!-- App styles -->
 	<link rel="stylesheet" href="{{url('panel/assets/css/app.css')}}" type="text/css">
@@ -37,14 +37,15 @@
 		<!-- ./ logo -->
 
 		<h5>ورود</h5>
-
+        @include('auth.errors')
 		<!-- form -->
-		<form>
+		<form method="POST" action="{{route('login')}}">
+            @csrf
 			<div class="form-group">
-				<input type="text" class="form-control text-left" placeholder="نام کاربری یا ایمیل" dir="ltr" required autofocus>
+				<input name="email" type="text" class="form-control text-left" placeholder="ایمیل" dir="ltr" required autofocus>
 			</div>
 			<div class="form-group">
-				<input type="password" class="form-control text-left" placeholder="رمز عبور" dir="ltr" required>
+				<input name="password" type="password" class="form-control text-left" placeholder="رمز عبور" dir="ltr" required>
 			</div>
 			<div class="form-group d-sm-flex justify-content-between text-left mb-4">
 				<div class="custom-control custom-checkbox">
@@ -56,7 +57,7 @@
 			<button class="btn btn-primary btn-block">ورود</button>
 			<hr>
 			<p class="text-muted">حسابی ندارید؟</p>
-			<a href="register.blade.php" class="btn btn-outline-light btn-sm">هم اکنون ثبت نام کنید!</a>
+			<a href="{{route('register')}}" class="btn btn-outline-light btn-sm">هم اکنون ثبت نام کنید!</a>
 		</form>
 		<!-- ./ form -->
 
