@@ -20,13 +20,7 @@
                             <div class="col-sm-10">
                                 <select name="parent_id" class="form-control">
                                     <option value="0">دسته بندی اصلی</option>
-{{--                                    @foreach($categories as $category_single)--}}
-{{--                                        @if($category->parent_id==$category_single->id)--}}
-{{--                                            <option selected value="{{ $category_single->id }}">{{ $category_single->title }}</option>--}}
-{{--                                        @else--}}
-{{--                                            <option value="{{ $category_single->id }}">{{ $category_single->title }}</option>--}}
-{{--                                        @endif--}}
-{{--                                    @endforeach--}}
+
                                     @foreach($categories as $id => $title)
                                         <option value="{{ $id }}" {{ (isset($category) && $category->parent_id == $id) ? 'selected' : '' }}>
                                             {{ $title }}

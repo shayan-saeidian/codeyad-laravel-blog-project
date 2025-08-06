@@ -51,5 +51,9 @@ class Category extends Model
 
         return $array;
     }
+    public function articles()
+    {
+        return $this->hasMany(Article::class);
+    }
 
 }

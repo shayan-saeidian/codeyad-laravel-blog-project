@@ -15,6 +15,13 @@
             </li>
         </ul>
         <ul>
+            <li data-toggle="tooltip" title="مقاله ها">
+                <a href="#articles" title=" مقاله ها">
+                    <i class="icon ti-pencil"></i>
+                </a>
+            </li>
+        </ul>
+        <ul>
             <li data-toggle="tooltip" title="ویرایش پروفایل">
                 <a href="#" class="go-to-page">
                     <i class="icon ti-settings"></i>
@@ -47,6 +54,15 @@
                 <ul>
                     <li><a href="{{route('categories.create')}}">ایجاد دسته بندی</a></li>
                     <li><a href="{{route('categories.index')}}">لیست دستنه بندی ها</a></li>
+                </ul>
+            </li>
+        </ul>
+        <ul id="articles">
+            <li>
+                <a href="#">مقاله ها</a>
+                <ul>
+                    <li><a href="{{route('articles.create')}}">ایجاد مقاله</a></li>
+                    <li><a href="{{route('articles.index')}}">لیست مقاله ها</a></li>
                 </ul>
             </li>
         </ul>
