@@ -43,7 +43,7 @@ class ArticleController extends Controller
             'user_id'=>auth()->id(),
             'image'=>$image_name,
         ]);
-        return redirect()->route('articles.index')->with('success','Article created successfully');
+        return redirect()->back()->with('success','Article created successfully');
     }
     /**
      * Display the specified resource.

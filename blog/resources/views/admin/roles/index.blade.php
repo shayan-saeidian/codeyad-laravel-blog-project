@@ -15,32 +15,35 @@
                         <thead class="thead-light">
                         <tr>
                                 <th class="text-center align-middle text-primary">ردیف</th>
-                                <th class="text-center align-middle text-primary">نام و نام خانوادگی</th>
-                                <th class="text-center align-middle text-primary">ایمیل</th>
-                                <th class="text-center align-middle text-primary">نقش های کاربر</th>
+                                <th class="text-center align-middle text-primary">نام نقش</th>
+
                                 <th class="text-center align-middle text-primary">ویرایش</th>
+                                <th class="text-center align-middle text-primary">حذف</th>
                                 <th class="text-center align-middle text-primary">تاریخ ایجاد</th>
                             <th class="text-center align-middle text-primary">تاریخ ویرایش</th>
                             </tr>
                         </thead>
                         <tbody>
-                        @foreach($users as $index=>$user)
+                        @foreach($roles as $index=>$role)
                             <tr>
-                                <td class="text-center align-middle">{{$users->firstItem() + $index}}</td>
-                                <td class="text-center align-middle">{{$user->name}}</td>
-                                <td class="text-center align-middle">{{$user->email}}</td>
+                                <td class="text-center align-middle">{{$roles->firstItem() + $index}}</td>
+                                <td class="text-center align-middle">{{$role->name}}</td>
                                 <td class="text-center align-middle">
-                                    <a class="btn btn-outline-info" href="{{route('create_user_roles',$user->id)}}">
-                                        نقش های کاربر
-                                    </a>
-                                </td>
-                                <td class="text-center align-middle">
-                                    <a class="btn btn-outline-info" href="{{route('users.edit',$user->id)}}">
+                                    <a class="btn btn-outline-info" href="{{route('roles.edit',$role->id)}}">
                                         ویرایش
                                     </a>
                                 </td>
-                                <td class="text-center align-middle">{{verta($user->created_at)->formatJalaliDatetime()}}</td>
-                                <td class="text-center align-middle">{{verta($user->updated_at)->formatJalaliDatetime()}}</td>
+                                <td class="text-center align-middle">
+                                    <form method="POST" action="{{route('roles.destroy',$role->id)}}">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button class="btn btn-outline-danger">
+                                            حذف
+                                        </button>
+                                    </form>
+                                </td>
+                                <td class="text-center align-middle">{{verta($role->created_at)->formatJalaliDatetime()}}</td>
+                                <td class="text-center align-middle">{{verta($role->updated_at)->formatJalaliDatetime()}}</td>
                             </tr>
                         @endforeach
 
@@ -48,7 +51,7 @@
                     </table>
                     <div style="margin: 40px !important;"
                          class="pagination pagination-rounded pagination-sm d-flex justify-content-center">
-                        {{$users->links()}}
+                        {{$roles->links()}}
                     </div>
                 </div>
             </div>

@@ -40,7 +40,7 @@ class CategoryController extends Controller
         $data=$request->all();
         $data['slug']=make_slug($request->title);
         Category::query()->create($data);
-        return redirect()->route('categories.index')->with('success','Category created successfully');
+        return redirect()->back()->with('success','Category created successfully');
     }
     /**
      * Display the specified resource.

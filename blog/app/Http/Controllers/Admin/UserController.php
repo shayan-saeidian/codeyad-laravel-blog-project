@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\UserCreateRequest;
 use App\Http\Requests\UserEditRequest;
+use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -76,5 +77,19 @@ class UserController extends Controller
     public function destroy(string $id)
     {
         //
+    }
+
+    public function createUserRoles($id)
+    {
+        $roles=Role::all();
+        $user=User::query()->find($id);
+        return view('admin.users.create_user_roles',compact('user','roles'));
+    }
+
+    public function storeUserRoles(Request $request,$id)
+    {
+        $user=User::query()->find($id);
+        $user->roles()->sync($request->roles);
+        return redirect()->route('users.index')->with('success','user roles added successfully');
     }
 }

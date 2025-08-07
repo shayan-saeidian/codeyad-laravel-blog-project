@@ -46,7 +46,14 @@ class User extends Authenticatable
         ];
     }
     public function articles()
-        {
-            return $this->hasMany(Article::class);
-        }
+    {
+        return $this->hasMany(Article::class);
+    }
+
+
+    public function roles()
+    {
+        return $this->belongsToMany(Role::class);
+    }
+
 }
